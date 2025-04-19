@@ -1,4 +1,4 @@
-# Tapioca Boba Shop
+# Tapioca Express
 
 A full-stack application featuring a React frontend and a Node.js/Express backend for ordering tapioca boba drinks.
 
