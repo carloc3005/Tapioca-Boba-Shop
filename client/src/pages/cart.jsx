@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import logo_bubble_tea from '../assets/logo/bubble-tea.png';
 import { useCart } from '../context/CartContext'; // Import useCart
+import Footer from '../components/Footer'; // Import Footer
 
 export default function Cart() {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ export default function Cart() {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen">
+    <div className="bg-gray-100 min-h-screen flex flex-col">
       {/* Simplified Header for Cart Page */}
       <header className="bg-white shadow-md">
         <div className="container mx-auto px-4 py-3 flex items-center">
@@ -37,7 +38,7 @@ export default function Cart() {
       </header>
 
       {/* Main Cart Content */}
-      <main className="container mx-auto px-4 py-12">
+      <main className="flex-grow container mx-auto px-4 py-12">
         <div className="cart-container bg-white rounded-lg shadow-lg p-6 md:p-8 max-w-2xl mx-auto">
           <h2 className="cart-title text-2xl md:text-3xl font-bold text-center mb-6 text-gray-800">Your Cart</h2>
 
@@ -109,12 +110,8 @@ export default function Cart() {
         </div>
       </main> {/* Add the closing main tag back */}
 
-      {/* Optional Footer - Can be added if needed */}
-      {/* <footer className="bg-gray-800 text-gray-300 py-8 px-4 mt-12">
-        <div className="container mx-auto text-center">
-          <p>&copy; {new Date().getFullYear()} Tapioca Express. All rights reserved.</p>
-        </div>
-      </footer> */}
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

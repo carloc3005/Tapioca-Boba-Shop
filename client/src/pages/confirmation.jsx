@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo_bubble_tea from '../assets/logo/bubble-tea.png';
 import boba_confirmation from '../assets/logo/boba-confirmation.png';
+import Footer from '../components/Footer'; // Import the Footer component
 
 export default function Confirmation() {
   const [userName, setUserName] = useState('');
@@ -73,12 +74,8 @@ export default function Confirmation() {
         </div>
       </main>
 
-      {/* Optional Footer */}
-      <footer className="bg-gray-800 text-gray-300 py-6 px-4 mt-auto">
-        <div className="container mx-auto text-center">
-          <p>&copy; {new Date().getFullYear()} Tapioca Express. All rights reserved.</p>
-        </div>
-      </footer>
+      {/* Use the Footer component */}
+      <Footer />
     </div>
   );
 }

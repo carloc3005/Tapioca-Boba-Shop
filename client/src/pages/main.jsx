@@ -2,6 +2,7 @@
 import React, { useState } from 'react'; // Import useState
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext'; // Import useCart
+import Footer from '../components/Footer'; // Import Footer
 
 // Import images
 import classic_milk_tea from '../assets/Drinks/Classic-Milk-Tea.png';
@@ -135,7 +136,7 @@ export default function Main() {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-gray-50 min-h-screen flex flex-col">
       {/* Header */}
       <header className="bg-white shadow-md sticky top-0 z-10">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
@@ -183,7 +184,7 @@ export default function Main() {
       </section>
 
       {/* Menu Section Container */}
-      <main className="container mx-auto px-4 py-12" id="menu">
+      <main className="flex-grow container mx-auto px-4 py-12" id="menu">
 
         {/* Milk Teas Section */}
         <section className="mb-12">
@@ -231,38 +232,8 @@ export default function Main() {
 
       </main>
 
-      {/* Footer Section */}
-      <footer className="bg-gray-800 text-gray-300 py-12 px-4">
-        <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          <div className="footer-section">
-            <h3 className="text-xl font-semibold text-white mb-3">Tapioca Express</h3>
-            <p>Your one-stop destination for delightful boba teas.</p>
-          </div>
-          <div className="footer-section">
-            <h3 className="text-xl font-semibold text-white mb-3">Quick Links</h3>
-            <ul>
-              <li><button onClick={() => handleScrollTo('home')} className="hover:text-white">Home</button></li>
-              <li><button onClick={() => handleScrollTo('menu')} className="hover:text-white">Menu</button></li>
-              {/* <li><a href="#order" className="hover:text-white">Order Online</a></li> */}
-              {/* <li><a href="#locations" className="hover:text-white">Locations</a></li> */}
-            </ul>
-          </div>
-          <div className="footer-section">
-            <h3 className="text-xl font-semibold text-white mb-3">Contact Us</h3>
-            <p>Email: contact@tapiocaexpressboba.com</p>
-            <p>Phone: (657) 278-2011 </p>
-            <p className="mt-2">Follow us:</p>
-            <div className="social-icons flex space-x-4 mt-2">
-              <a href="#" aria-label="Facebook"><img src={logo_facebook} alt="Facebook" className="h-6 w-6"/></a>
-              <a href="#" aria-label="Instagram"><img src={logo_instagram} alt="Instagram" className="h-6 w-6"/></a>
-              <a href="#" aria-label="Twitter"><img src={logo_twitter} alt="Twitter" className="h-6 w-6"/></a>
-            </div>
-          </div>
-        </div>
-        <div className="footer-bottom border-t border-gray-700 pt-8 text-center">
-          <p>&copy; {new Date().getFullYear()} Tapioca Express. All rights reserved.</p>
-        </div>
-      </footer>
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
