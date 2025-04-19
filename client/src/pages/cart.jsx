@@ -14,11 +14,51 @@ export default function Cart() {
   const salesTax = subtotal * salesTaxRate;
   const total = subtotal + salesTax;
 
-  const handleCheckout = () => {
+  const handleCheckout = async () => { // Make the function async
     console.log('Proceeding to checkout...');
-    // TODO: Add any order processing logic here (e.g., sending data to a backend)
-    clearCart(); // Clear the cart after checkout
-    navigate('/confirmation'); // Navigate to the confirmation page
+
+    // 1. Prepare the order data payload
+    const orderData = {
+      items: cartItems.map(item => ({
+        name: item.name,
+        sugar: item.sugar,
+        boba: item.boba,
+        quantity: item.quantity,
+        price: item.price
+      })),
+      totalAmount: total // Use the calculated total
+    };
+
+    try {
+      // 2. Send the POST request to the backend
+      const response = await fetch('http://localhost:5001/api/orders', { // Use the full backend URL
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(orderData),
+      });
+
+      // 3. Handle the response
+      if (!response.ok) {
+        // If response is not OK (e.g., 400, 500), throw an error
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to submit order');
+      }
+
+      // If response is OK (e.g., 201 Created)
+      const result = await response.json();
+      console.log('Order submitted successfully:', result);
+
+      // 4. Clear cart and navigate ONLY on success
+      clearCart();
+      navigate('/confirmation'); // Navigate to the confirmation page
+
+    } catch (error) {
+      console.error('Checkout error:', error);
+      // TODO: Display an error message to the user (e.g., using a state variable and rendering it)
+      alert(`Error submitting order: ${error.message}`); // Simple alert for now
+    }
   };
 
   return (
