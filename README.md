@@ -5,10 +5,10 @@ A modern, full-stack web application designed to streamline order and inventory 
 ---
 
 ## 📸 Demo
-![Screenshot 1](public/pic1.png)
-![Screenshot 2](public/pic2.png)
-![Screenshot 3](public/pic3.png)
-![Screenshot 4](public/pic4.png)
+![Screenshot 1](client/public/pic1.png)
+![Screenshot 2](client/public/pic2.png)
+![Screenshot 3](client/public/pic3.png)
+![Screenshot 4](client/public/pic4.png)
 
 
 
